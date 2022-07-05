@@ -3,6 +3,7 @@ const app = new Vue(
     {
         el: '#app',
         data: {
+            
             slides: [
                 {
                     image: 'img/01.jpg',
@@ -32,6 +33,8 @@ const app = new Vue(
             ],
             // inizializzo la variabile che mi salva l'elemento dell'array
             slideScrolled: 0,
+            clock: null,
+
         },
 
         // creo una funzione per capire se gli elementi degli array sono selezionati e inserire le immagini dinamicamente le immagini nel dom con VUE attraverso un method
@@ -62,10 +65,16 @@ const app = new Vue(
                     this.slideScrolled--;
                 }
             },
+            startTiming: function(){
+                clock = setInterval(this.nextImage, 1000);
+            },
+            stopTiming: function(){
+                clearInterval(clock);
+            },
         },
-
-        created() {
-            setInterval(this.nextImage, 3000);
-        }
+        // creo la funzione timing per far l'autoplay ogni 3 secondi quando ricarico la pagina
+        // created() {
+        //     setInterval(this.nextImage, 3000);
+        // }
     },
 );

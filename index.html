@@ -28,7 +28,7 @@
                     </div>
                 </div>
                  <!-- colonna destra -->
-                <div class="thumbs">
+                <div class="thumbs" @mouseover="stopTiming" @mouseleave="startTiming">
                     <div @click="prevImage" class="prev"></div>
                     <div @click="nextImage" class="next"></div>
                     <div class="thumb active">
