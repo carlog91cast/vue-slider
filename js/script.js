@@ -37,8 +37,14 @@ const app = new Vue(
         // creo una funzione per capire se gli elementi degli array sono selezionati e inserire le immagini dinamicamente le immagini nel dom con VUE attraverso un method
 
         methods: {
-            isImageScrolled: function (index) {
-                return (index == this.isslideScrolled) ? "isslideScrolled" : "nonslideScrolled";
+
+            setIndex: function (value) {
+                this.slideScrolled = value;
+            },
+            setClass: function (value) {
+                if (this.slideScrolled == value) {
+                    return "active";
+                }
             },
             nextImage: function () {
 
