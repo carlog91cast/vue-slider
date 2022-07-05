@@ -3,9 +3,6 @@ const app = new Vue(
     {
         el: '#app',
         data: {
-
-
-
             slides: [
                 {
                     image: 'img/01.jpg',
@@ -34,22 +31,31 @@ const app = new Vue(
                 }
             ],
             // inizializzo la variabile che mi salva l'elemento dell'array
-            imageScrolled: 0,
-
+            slideScrolled: 0,
         },
-
-
 
         // creo una funzione per capire se gli elementi degli array sono selezionati e inserire le immagini dinamicamente le immagini nel dom con VUE attraverso un method
 
         methods: {
             isImageScrolled: function (index) {
-                return (index == this.isImageScrolled) ? "isImageScrolled" : "nonImageScrolled";
+                return (index == this.isslideScrolled) ? "isslideScrolled" : "nonslideScrolled";
             },
-            addImage: function () {
-                
-            }
+            nextImage: function () {
 
+                if (this.slideScrolled == this.slides.length - 1) {
+                    this.slideScrolled = 0;
+                } else {
+                    this.slideScrolled++;
+                }
+            },
+            prevImage: function () {
+
+                if (this.slideScrolled == 0) {
+                    this.slideScrolled = this.slides.length - 1
+                } else {
+                    this.slideScrolled--;
+                }
+            },
         },
     },
 );
